@@ -15,7 +15,9 @@
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "ember serve",
-    "test": "ember test"
+    "test": "ember test",
+    "css-build": "node-sass --omit-source-map-url app/styles/app.scss app/styles/app.css",
+    "css-watch": "npm run css-build -- --watch"
   },
   "devDependencies": {
     "@ember/optional-features": "^1.3.0",
@@ -23,6 +25,7 @@
     "@glimmer/tracking": "^1.0.0",
     "babel-eslint": "^10.0.3",
     "broccoli-asset-rev": "^3.0.0",
+    "bulma": "^0.8.0",
     "ember-auto-import": "^1.5.3",
     "ember-cli": "~3.16.0",
     "ember-cli-app-version": "^3.2.0",
@@ -46,6 +49,7 @@
     "eslint-plugin-ember": "^7.7.2",
     "eslint-plugin-node": "^11.0.0",
     "loader.js": "^4.7.0",
+    "node-sass": "^4.13.1",
     "qunit-dom": "^1.0.0"
   },
   "engines": {
@@ -53,5 +57,6 @@
   },
   "ember": {
     "edition": "octane"
-  }
+  },
+  "dependencies": {}
 }
