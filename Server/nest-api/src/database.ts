@@ -4,6 +4,6 @@ export const Database = [
     {
         provide: 'DATABASE_CONNECTION',
         useFactory: (): Promise<typeof mongoose> =>
-            mongoose.connect('mongodb://localhost/docker_control'),
+            mongoose.connect('mongodb://dany-corbineau.fr:27018'),
     },
 ];
