@@ -1,25 +1,46 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist/
-/tmp/
+/dist
+/tmp
+/out-tsc
+# Only exists if Bazel was run
+/bazel-out
 
 # dependencies
-/bower_components/
-/node_modules/
+/node_modules
+
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
 
 # misc
-/.env*
-/.pnp*
 /.sass-cache
 /connect.lock
-/coverage/
+/coverage
 /libpeerconnection.log
-/npm-debug.log*
-/testem.log
-/yarn-error.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
 
-# ember-try
-/.node_modules.ember-try/
-/bower.json.ember-try
-/package.json.ember-try
+# System Files
+.DS_Store
+Thumbs.db
