@@ -2,6 +2,9 @@
 
 module.exports = function(environment) {
   let ENV = {
+    contentSecurityPolicy: {
+      'connect-src': "'self' http://localhost:3000"
+    },
     modulePrefix: 'client',
     environment,
     rootURL: '/',
