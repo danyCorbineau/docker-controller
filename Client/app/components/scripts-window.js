@@ -5,8 +5,8 @@ import {tracked} from '@glimmer/tracking';
 export default class ScriptsWindowComponent extends Component {
   @tracked isCreate = false;
   @tracked isList = false;
+
   @action toCreateScript() {
-    debugger;
     this.isList = false;
     this.isCreate = true;
   }
