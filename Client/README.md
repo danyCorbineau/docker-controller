@@ -1,57 +1,27 @@
-# client
+# Client
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.25.
 
-## Prerequisites
+## Development server
 
-You will need the following things properly installed on your computer.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with npm)
-* [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
+## Code scaffolding
 
-## Installation
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-* `git clone <repository-url>` this repository
-* `cd client`
-* `npm install`
+## Build
 
-## Running / Development
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+## Running unit tests
 
-### Code Generators
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-Make use of the many generators for code, try `ember help generate` for more details
+## Running end-to-end tests
 
-### Running Tests
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-* `ember test`
-* `ember test --server`
+## Further help
 
-### Linting
-
-* `npm run lint:hbs`
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
