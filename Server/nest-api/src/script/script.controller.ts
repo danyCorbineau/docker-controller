@@ -3,7 +3,7 @@ import {Script} from "./script.interface";
 import {ScriptService} from "./script.service";
 import * as JSONApi from 'jsonapi-serializer';
 
-@Controller('script')
+@Controller('scripts')
 export class ScriptController {
     constructor(public scrService: ScriptService) {}
 
