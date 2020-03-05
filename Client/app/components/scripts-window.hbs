@@ -6,8 +6,9 @@
     </ul>
   </div>
   <div>
+    
     {{#if this.isCreate}}
-      <ScriptCreate/>
+      <ScriptCreate @new_script={{@new_script}}/>
     {{/if}}
     {{#if this.isList}}
       List of scripts
