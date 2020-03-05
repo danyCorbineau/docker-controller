@@ -1,0 +1,19 @@
+<div>
+  <div class="tabs">
+    <ul>
+      <li {{on "click" this.toCreateScript}}><a>Créer un script</a></li>
+      <li {{on "click" this.toListScript}}><a>Liste des scripts</a></li>
+    </ul>
+  </div>
+  <div>
+    {{#if this.isCreate}}
+      <ScriptCreate/>
+    {{/if}}
+    {{#if this.isList}}
+      List of scripts
+    {{/if}}
+
+  </div>
+  {{yield}}
+</div>
+

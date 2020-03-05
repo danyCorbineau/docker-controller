@@ -1,0 +1,16 @@
+<div>
+  <h2>Création de script</h2>
+  <label>
+    Nom du script
+    <Input id="scriptName" @type="text" @value={{this.scriptName}}/>
+  </label>
+  <label for="scriptExt">
+    <Input id="scriptExt" @type="text" @value={{this.scriptExt}}/>
+  </label>
+  <label for="scriptContent">
+    <Textarea id="scriptContent" class="textarea" @value={{this.scriptContent}} />
+  </label>
+  <button  {{on "click" this.submitCreate}}>Enregistrer le script</button>
+</div>
+
+{{yield}}
