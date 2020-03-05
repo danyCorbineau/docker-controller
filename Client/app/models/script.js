@@ -1,7 +1,7 @@
-import Model from '@ember-data/model';
+import Model, { attr } from '@ember-data/model';
 
 export default class ScriptModel extends Model {
-  name = "";
-  extension = "";
-  content = "";
+  @attr('string') name;
+  @attr('string') extension;
+  @attr('string') content;
 }
