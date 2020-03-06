@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-// import {MatSort} from '@angular/material/sort';
-// import {MatTableDataSource} from '@angular/material/table';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 
 export interface PeriodicElement {
   _id: string;
@@ -29,9 +29,25 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ContainerListComponent implements OnInit {
   displayedColumns: string[] = ['_id', 'names', 'state'];
-  dataSource = ELEMENT_DATA;
+  dataSource = new MatTableDataSource<PeriodicElement>();
+
+  @ViewChild(MatSort) sort: MatSort;
+
+  constructor() {
+    this.dataSource.data = [];
+  }
+
+  loadData() {
+    this.dataSource.data = ELEMENT_DATA;
+    console.log('LoadData')
+  }
 
   ngOnInit() {
+    this.loadData();
+  }
+
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
   }
 }
 
