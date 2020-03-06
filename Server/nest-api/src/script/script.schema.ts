@@ -6,10 +6,7 @@ export const ScriptSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: function() {
-            if (this.name != "") {
-                return Date.now();
-            }
-            return null;
+            return this.name == "" ? null : Date.now();
         }
     },
     content: Buffer,
