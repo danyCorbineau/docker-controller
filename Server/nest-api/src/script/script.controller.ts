@@ -2,13 +2,14 @@ import {Get, Post, Put, Delete, Controller, Body} from '@nestjs/common';
 import {Script} from "./script.interface";
 import {ScriptService} from "./script.service";
 import * as JSONApi from 'jsonapi-serializer';
+import {Serializer} from "jsonapi-serializer";
 
 @Controller('scripts')
 export class ScriptController {
     constructor(public scrService: ScriptService) {}
 
     @Get()
-    async findAll(): Promise<Script[]> {
+    async findAll(): Promise<any> {
         let data: any = await this.scrService.findAll();
         /*let data_encoded: any = {...data};
         for(let i = 0; i < data.length; i++) {
