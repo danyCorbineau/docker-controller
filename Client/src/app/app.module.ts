@@ -14,6 +14,7 @@ import { ScriptsComponent } from './scripts/scripts.component';
 // materielAngular
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
+import { ApiService } from './services/api.service';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateListService } from './services/create-list.service';
 // import {MatSort} from '@angular/material/sort';
@@ -21,6 +22,8 @@ import { CreateListService } from './services/create-list.service';
 import {MatTableModule} from '@angular/material/table';
 
 import {MatButtonModule} from '@angular/material/button';
+import { ContainerComponent } from './scripts/container/container.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import {MatButtonModule} from '@angular/material/button';
     HomeComponent,
     CreateListComponent,
     ScriptsComponent,
-    ContainerListComponent
+    ContainerListComponent,
+    ContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +46,7 @@ import {MatButtonModule} from '@angular/material/button';
     // MatTableDataSource,
     MatTableModule,
     MatButtonModule,
+    MatDialogModule,
     ReactiveFormsModule
 
 
