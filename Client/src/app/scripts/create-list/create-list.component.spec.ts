@@ -12,10 +12,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { CreateListService } from 'src/app/services/create-list.service';
+import {CreateScript} from '../../model/create-script';
+import {retry} from 'rxjs/operators';
 
 describe('CreateListComponent', () => {
   let component: CreateListComponent;
   let fixture: ComponentFixture<CreateListComponent>;
+  let createService: CreateListService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -45,11 +48,45 @@ describe('CreateListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CreateListComponent);
     component = fixture.componentInstance;
+    createService = TestBed.get(CreateListService);
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should not send script',  async (done) => {
+    const newScript: CreateScript = {title: '', extension: '', content: ''};
+    newScript.title = 'Title false test';
+    newScript.extension = 'json';
+    newScript.content = '';
+    await new Promise((resolve, reject) => {
+      createService.add(newScript).subscribe( (res: any) => {
+        console.log(res);
+        // expect(e).toBeDefined();
+        // expect(e).toEqual('Invalid extension');
+        resolve();
+      });
+      done();
+    });
+  });
+
+  it('should send script',  async (done) => {
+    const newScript: CreateScript = new CreateScript();
+    newScript.title = 'Title test';
+    newScript.extension = 'py';
+    newScript.content = 'function(){}';
+    await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 2000);
+      createService.add(newScript).subscribe( (res: any) => {
+        expect(res.data.id).toBeDefined();
+        expect(res.data.attributes.name).toEqual(newScript.title);
+        done();
+      });
+    });
   });
 });
 

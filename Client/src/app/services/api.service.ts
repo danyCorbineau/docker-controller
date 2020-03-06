@@ -21,7 +21,12 @@ export class ApiService<T> implements IApi<T> {
   }
   add(entity: T): Observable<T> {
     console.log('test : ', entity);
-    return this.http.post<T>(this.API_URL + '/' + this.entity_endpoint, entity);
+    try {
+      return this.http.post<T>(this.API_URL + '/' + this.entity_endpoint, entity);
+    } catch (e) {
+      console.error(e);
+      return null;
+    }
   }
   update(entity: T) {
     return this.http.put<T>(this.API_URL + '/' + this.entity_endpoint, entity);
