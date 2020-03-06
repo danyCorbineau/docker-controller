@@ -15,7 +15,6 @@ export class CreateListComponent implements OnInit {
 
   constructor(private createScript: CreateListService,
               private activatedRoute: ActivatedRoute) { }
-
   ngOnInit() {
   }
 
@@ -23,5 +22,4 @@ export class CreateListComponent implements OnInit {
     // this.lieuService.add(this.lieu).subscribe(a => console.log(a));
     this.createScript.add(this.script).subscribe(a => console.log(a));
   }
-
 }
