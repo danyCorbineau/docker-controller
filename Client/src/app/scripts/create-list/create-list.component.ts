@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CreateScript } from '../../model/create-script';
 import {FormControl} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { CreateListService } from 'src/app/services/create-list.service'
+import { CreateListService } from 'src/app/services/create-list.service';
 
 @Component({
   selector: 'app-create-list',
