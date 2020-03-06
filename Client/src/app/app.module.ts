@@ -6,10 +6,13 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CreateListComponent } from './scripts/create-list/create-list.component';
 import { ScriptsComponent } from './scripts/scripts.component';
+import { CreateScriptService } from './services/create-script.service';
 
 // materielAngular
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,9 +25,14 @@ import {MatInputModule} from '@angular/material/input';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    CreateScriptService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
