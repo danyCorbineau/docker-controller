@@ -64,11 +64,13 @@ describe('CreateListComponent', () => {
     await new Promise((resolve, reject) => {
       createService.add(newScript).subscribe( (res: any) => {
         console.log(res);
-        // expect(e).toBeDefined();
-        // expect(e).toEqual('Invalid extension');
         resolve();
+      }, (error) => {
+        expect(error).toBeDefined();
+        expect(error.status).toEqual(403);
+        expect(error.error.error).toEqual('Invalid extension');
+        done();
       });
-      done();
     });
   });
 
