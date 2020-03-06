@@ -18,6 +18,10 @@ export class ScriptService {
         return createdScript.save();
     }
 
+    // async findOne(id: any): Promise<Script> {
+    //     return 'Not yet implemented';
+    // }
+
     // async update() {
     //     return 'Not yet implemented';
     // }
