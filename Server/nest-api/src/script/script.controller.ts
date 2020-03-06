@@ -1,8 +1,7 @@
-import {Get, Post, Put, Delete, Controller, Body} from '@nestjs/common';
+import {Get, Post, Put, Delete, Controller, Body, HttpException, HttpStatus, Param} from '@nestjs/common';
 import {Script} from "./script.interface";
 import {ScriptService} from "./script.service";
 import * as JSONApi from 'jsonapi-serializer';
-import {Serializer} from "jsonapi-serializer";
 
 @Controller('scripts')
 export class ScriptController {
@@ -27,14 +26,42 @@ export class ScriptController {
 
     @Post()
     async create(@Body() data: any) {
-        let script: any = {
-            name: data.title,
-            ext: data.extension,
-            createdAt: new Date,
-            content: data.content
-        };
+        let title: string = "";
+        let extension: string = "";
+        const authorizedExt: string[] = ['js', 'py', 'sh', 'bash'];
+        let content: any = "";
+        try {
+            if (data.title && data.extension) {
+                title = data.title;
+                if (authorizedExt.indexOf(data.extension) !== -1) {
+                    extension = data.extension;
+                } else {
+                    throw "Invalid extension";
+                }
+                if (typeof data.content !== undefined && data.content !== "") {
+                    content = data.content;
+                } else {
+                    throw "Empty script";
+                }
 
-        return await this.scrService.create(script);
+                let script: any = {
+                    name: title,
+                    ext: extension,
+                    createdAt: new Date,
+                    content: content
+                }
+                const dat = await this.scrService.create(script);
+                return new JSONApi.Serializer('script', {
+                        attributes: ['name', 'ext', 'createdAt', 'content'],
+                    }
+                ).serialize(dat);
+            }
+        } catch (e) {
+            throw new HttpException({
+                status: HttpStatus.FORBIDDEN,
+                error: e,
+            }, 403);
+        }
     }
 
     @Put()
