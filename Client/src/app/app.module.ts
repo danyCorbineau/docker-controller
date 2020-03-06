@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CreateListComponent } from './scripts/create-list/create-list.component';
 import { ScriptsComponent } from './scripts/scripts.component';
+import { HttpClientModule } from '@angular/common/http';
 
 // materielAngular
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
+import { ApiService } from './services/api.service';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateListService } from './services/create-list.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +26,15 @@ import {MatInputModule} from '@angular/material/input';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+
   ],
-  providers: [],
+  providers: [
+    CreateListService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
