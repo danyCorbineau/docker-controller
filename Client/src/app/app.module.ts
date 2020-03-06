@@ -22,7 +22,6 @@ import {MatTableModule} from '@angular/material/table';
 
 import {MatButtonModule} from '@angular/material/button';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,13 +41,13 @@ import {MatButtonModule} from '@angular/material/button';
     // MatSort,
     // MatTableDataSource,
     MatTableModule,
-    ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule
 
 
   ],
   providers: [
-    CreateListService
+    CreateListService,
   ],
   bootstrap: [AppComponent]
 })
