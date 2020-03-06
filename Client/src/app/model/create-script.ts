@@ -1,6 +1,6 @@
 
 export class CreateScript {
     title: string;
-    extend: string;
+    extension: string;
     content: string;
 }
