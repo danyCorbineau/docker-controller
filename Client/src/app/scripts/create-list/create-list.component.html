@@ -1,1 +1,16 @@
-<h1>test</h1>
+<form>
+  <mat-form-field class="script-full-width">
+    <mat-label>Nom</mat-label>
+    <input matInput [(ngModel)]="script.title" name="Titre" >
+  </mat-form-field>
+  <mat-form-field class="script-full-width">
+    <mat-label>Extension</mat-label>
+    <input matInput [(ngModel)]="script.extend" name="Titre" >
+  </mat-form-field>
+  <mat-form-field class="script-full-width">
+    <mat-label>Script</mat-label>
+    <textarea matInput [(ngModel)]="script.content" name="Content"></textarea>
+  </mat-form-field>
+  </form>
+   
+  <button mat-stroked-button (click)="saveScript()">Save</button>
