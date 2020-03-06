@@ -18,11 +18,11 @@ export class ScriptService {
         return createdScript.save();
     }
 
-    async update() {
-        return 'Not yet implemented';
-    }
-
-    async delete() {
-        return 'Not yet implemented';
-    }
+    // async update() {
+    //     return 'Not yet implemented';
+    // }
+    //
+    // async delete() {
+    //     return 'Not yet implemented';
+    // }
 }
