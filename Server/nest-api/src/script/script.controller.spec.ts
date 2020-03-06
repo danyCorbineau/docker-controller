@@ -32,7 +32,7 @@ describe('Script Controller', () => {
     expect(script).toBeDefined();
     let findScripts = await controller.findAll();
     expect(findScripts).toBeDefined();
-    expect(findScripts.data.length).toEqual(1);
+    expect(findScripts.data.length).toBeGreaterThan(0);
     expect(findScripts.data[0].id).toBeDefined();
     done();
   });
