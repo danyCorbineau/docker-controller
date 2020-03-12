@@ -5,6 +5,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {OverlayModule} from "@angular/cdk/overlay";
 import {ContainerService} from "../../services/container.service";
 import {MatTableModule} from "@angular/material/table";
+import {MatSortModule} from "@angular/material/sort";
 
 
 async function timeout(ms)
@@ -24,7 +25,7 @@ describe('ContainerListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MatTableModule, OverlayModule, MatDialogModule],
+      imports: [MatTableModule, OverlayModule, MatDialogModule, MatSortModule],
       declarations: [ ContainerListComponent ],
       providers: [ContainerService]
     })
@@ -50,8 +51,8 @@ describe('ContainerListComponent', () => {
   it('test first element in list is ', async () => {
       let row = fixture.debugElement.nativeElement.querySelector('tr[mat-row]');
       row.click();
-      await fixture.whenStable()
+      await fixture.whenStable();
     expect(component.showDataContainer).toHaveBeenCalled();
-  })
+  });
 
 });
