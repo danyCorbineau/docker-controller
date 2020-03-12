@@ -11,7 +11,7 @@ describe('ScriptService', () => {
       providers: [ScriptService, ...ScriptProvider, ...Database],
     }).compile();
 
-    service = module.get<ScriptService>(ScriptService);
+    service = module.get(ScriptService); // <ScriptService>
     try {
       await (await Database[0].useFactory()).connection.dropCollection('scripts');
     }
@@ -22,7 +22,7 @@ describe('ScriptService', () => {
     expect(service).toBeDefined();
   });
 
-  it('check default date', async(done) => {
+  it('check default date', async (done) => {
     let script: any = {content: Buffer.from('print(\'hello\')'), ext: 'py', name: 'Test', createdAt: new Date()};
     let newScript = await service.create(script);
     expect(newScript._id).toBeDefined();

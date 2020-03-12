@@ -16,8 +16,8 @@ describe('Script Controller', () => {
       providers: [ScriptService, ...ScriptProvider, ...Database],
     }).compile();
 
-    service = module.get<ScriptService>(ScriptService);
-    controller = module.get<ScriptController>(ScriptController);
+    service = module.get(ScriptService);
+    controller = module.get(ScriptController);
     try {
       await (await Database[0].useFactory()).connection.dropCollection('scripts');
     }
@@ -38,29 +38,41 @@ describe('Script Controller', () => {
     done();
   });
 
-  it('should throw error', async (done) => {
-    const handle_exept = async () => {
-      return controller.create({title: '', extension: '', content: ''});
-    };
+  it('should throw error script extension', async (done) => {
     /*- Check handling extension error -*/
-    //let script = await handle_exept('Test title', 'json', '');
-    await expect(handle_exept).toThrowError(new Error('Invalid extension'));
 
+    await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        controller.create({title: 'False test', extension: 'json', content: ''}).catch((e) => {
+          expect(e).toBeDefined();
+          expect(e.status).toEqual(403);
+          expect(e.message.error).toEqual('Invalid extension');
+          done();
+        });
+      }, 1000);
+    });
+  });
+
+  it('should throw error script content', async (done) => {
     /*- Check handling script content error -*/
-    // script = await handle_exept('Test title', 'py', '');
-    // await expect(script).toThrowError(new Error('Empty script'));
-    //
-    // let findScripts = await controller.findAll();
-    // expect(findScripts).toBeDefined();
-    // expect(findScripts.data.length).toEqual(0);
-    done();
+
+    await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        controller.create({title: 'False test', extension: 'py', content: ''}).catch((e) => {
+          expect(e).toBeDefined();
+          expect(e.status).toEqual(403);
+          expect(e.message.error).toEqual('Empty script');
+          done();
+        });
+      }, 1000);
+    });
   });
 
   it('test update', async () => {
     expect(await controller.update()).toEqual('Not yet implemented');
   })
 
-  it('test dalete',   async () => {
+  it('test delete',   async () => {
     expect(await controller.delete()).toEqual('Not yet implemented');
   })
 
