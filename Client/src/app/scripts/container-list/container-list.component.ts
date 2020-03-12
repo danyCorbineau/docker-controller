@@ -20,7 +20,7 @@ export class ContainerListComponent implements OnInit {
   dataSource = new MatTableDataSource<Container>();
   dialog: MatDialog;
 
-  dataloaded:boolean = false;
+  dataloaded: boolean = false;
 
   @ViewChild(MatSort) sort: MatSort;
 
