@@ -7,6 +7,6 @@ export const Database = [
     {
         provide: 'DATABASE_CONNECTION',
         useFactory: (): Promise<typeof mongoose> =>
-            mongoose.connect(process.env.DB),
+            mongoose.connect(process.env.DB, { useNewUrlParser: true }),
     },
 ];
