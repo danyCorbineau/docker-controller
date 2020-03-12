@@ -17,7 +17,7 @@ async function timeout(ms)
 describe('ContainerListComponent', () => {
   let component: ContainerListComponent;
   let fixture: ComponentFixture<ContainerListComponent>;
-  
+
   const CONTAINERS = [
     // tslint:disable-next-line: max-line-length
     {_id: 'EFGH', names: 'Beta', image: 'A', state: 'running', ports: ['123:567', '789:1011'], created: 1583508175, status: 'looking for ...'},
@@ -58,7 +58,7 @@ describe('ContainerListComponent', () => {
   it('test first element in list is ', async () => {
       let row = fixture.debugElement.nativeElement.querySelector('tr[mat-row]');
       row.click();
-      await fixture.whenStable();
+      await timeout(500);
     expect(component.showDataContainer).toHaveBeenCalled();
   });
 });
