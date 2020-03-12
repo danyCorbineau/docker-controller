@@ -17,13 +17,12 @@ import {MatInputModule} from '@angular/material/input';
 import { ApiService } from './services/api.service';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateListService } from './services/create-list.service';
-// import {MatSort} from '@angular/material/sort';
-// import { MatTableDataSource } from '@angular/material/table';
 import {MatTableModule} from '@angular/material/table';
 
 import {MatButtonModule} from '@angular/material/button';
 import { ContainerComponent } from './scripts/container/container.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -42,14 +41,11 @@ import {MatDialogModule} from '@angular/material/dialog';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    // MatSort,
-    // MatTableDataSource,
+    MatSortModule,
     MatTableModule,
     MatButtonModule,
     MatDialogModule,
     ReactiveFormsModule
-
-
   ],
   providers: [
     CreateListService,
