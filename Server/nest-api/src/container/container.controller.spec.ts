@@ -56,11 +56,11 @@ describe('Container Controller', () => {
     //   done();
     // });
   
-    // it('test update', async () => {
-    //   expect(await controller.update()).toEqual('Not yet implemented');
-    // })
+    it('test update', async () => {
+      expect(await controller.update()).toEqual('Not yet implemented');
+    })
   
-    // it('test delete',   async () => {
-    //   expect(await controller.delete()).toEqual('Not yet implemented');
-    // })
+    it('test delete',   async () => {
+      expect(await controller.delete()).toEqual('Not yet implemented');
+    })
 });

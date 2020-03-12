@@ -18,7 +18,7 @@ export class ContainerController {
             }
         }*/
         return new JSONApi.Serializer('container', {
-                attributes: ['unique_id', 'status', 'scriptId'],
+                attributes: ['unique_id', 'status', 'scripts'],
             }
         ).serialize(data);
     }
