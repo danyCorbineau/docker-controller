@@ -4,6 +4,7 @@ import * as JSONApi from 'jsonapi-serializer';
 
 @Controller('containers')
 export class ContainerController {
+    attributes: string[] = ['unique_id', 'status', 'scripts', 'names', 'image', 'state', 'ports', 'created'];
     constructor(public contService: ContainerService){}
 
     @Get()
@@ -18,7 +19,7 @@ export class ContainerController {
             }
         }*/
         return new JSONApi.Serializer('container', {
-                attributes: ['unique_id', 'status', 'scripts'],
+                attributes: this.attributes,
             }
         ).serialize(data);
     }
@@ -26,7 +27,7 @@ export class ContainerController {
     @Post()
     async create(@Body() data: any) {
         let unique_id: String = '';
-        let status: Boolean = false;
+        let status: String = '';
         try{
             if(data.unique_id && data.status){
                 let container: any = {
@@ -36,7 +37,7 @@ export class ContainerController {
 
                 const dat = await this.contService.create(container);
                 return new JSONApi.Serializer('container', {
-                        attributes: ['unique_id', 'status', 'scripts'],
+                        attributes: this.attributes,
                     }
                 ).serialize(dat);
             }

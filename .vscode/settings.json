@@ -1,4 +1,7 @@
 {
     "git.autofetchPeriod": 600,
-    "git.autofetch": true
+    "git.autofetch": true,
+    "cSpell.words": [
+        "createdcontainer"
+    ]
 }
