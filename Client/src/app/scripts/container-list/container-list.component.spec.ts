@@ -9,7 +9,6 @@ import {MatSortModule} from "@angular/material/sort";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatButtonModule} from "@angular/material/button";
 
-
 async function timeout(ms)
 {
   return new Promise((r) => setTimeout(r, ms));
@@ -18,7 +17,7 @@ async function timeout(ms)
 describe('ContainerListComponent', () => {
   let component: ContainerListComponent;
   let fixture: ComponentFixture<ContainerListComponent>;
-
+  
   const CONTAINERS = [
     // tslint:disable-next-line: max-line-length
     {_id: 'EFGH', names: 'Beta', image: 'A', state: 'running', ports: ['123:567', '789:1011'], created: 1583508175, status: 'looking for ...'},
@@ -62,5 +61,4 @@ describe('ContainerListComponent', () => {
       await fixture.whenStable();
     expect(component.showDataContainer).toHaveBeenCalled();
   });
-
 });
