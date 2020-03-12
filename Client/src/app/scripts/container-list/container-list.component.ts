@@ -5,19 +5,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 
 import {ContainerComponent} from '../container/container.component';
 import {Container} from '../../model/container';
-
-const ELEMENT_DATA: Container[] = [
-  // tslint:disable-next-line: max-line-length
-  {_id: '123', names: 'abc', image: 'img', state: 'running', ports: ['123:567', '789:1011'], created: 1583508175, status: 'looking for ...'},
-  // tslint:disable-next-line: max-line-length
-  {_id: '456', names: 'def', image: 'img', state: 'running', ports: ['123:567', '789:1011'], created: 1583508175, status: 'looking for ...'},
-  // tslint:disable-next-line: max-line-length
-  {_id: '789', names: 'ghi', image: 'img', state: 'running', ports: ['123:567', '789:1011'], created: 1583508175, status: 'looking for ...'},
-  // tslint:disable-next-line: max-line-length
-  {_id: '101', names: 'klm', image: 'img', state: 'running', ports: ['123:567', '789:1011'], created: 1583508175, status: 'looking for ...'},
-  // tslint:disable-next-line: max-line-length
-  {_id: '112', names: 'nop', image: 'img', state: 'running', ports: ['123:567', '789:1011'], created: 1583508175, status: 'looking for ...'},
-];
+import {ContainerService} from "../../services/container.service";
 
 /**
  * @title Table with sorting
@@ -34,7 +22,10 @@ export class ContainerListComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public popup: MatDialog) {
+  constructor(
+    public popup: MatDialog,
+    private containerService: ContainerService
+  ) {
     this.dataSource.data = [];
     this.dialog = popup;
   }
@@ -46,13 +37,14 @@ export class ContainerListComponent implements OnInit {
     });
   }
 
-  loadData() {
-    this.dataSource.data = ELEMENT_DATA;
+  async loadData() {
+    this.dataSource.data = await this.containerService.getContainers();
     console.log('LoadData');
+    return;
   }
 
-  ngOnInit() {
-    this.loadData();
+  async ngOnInit(): Promise<any>{
+    await this.loadData();
   }
 
   // tslint:disable-next-line: use-lifecycle-interface
