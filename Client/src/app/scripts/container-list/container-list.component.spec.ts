@@ -7,6 +7,7 @@ import {ContainerService} from "../../services/container.service";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatButtonModule} from "@angular/material/button";
 
 
 async function timeout(ms)
@@ -26,7 +27,13 @@ describe('ContainerListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MatTableModule, OverlayModule, MatDialogModule, MatSortModule, BrowserAnimationsModule],
+      imports: [
+        MatTableModule,
+        OverlayModule,
+        MatDialogModule,
+        MatSortModule,
+        BrowserAnimationsModule,
+        MatButtonModule],
       declarations: [ ContainerListComponent ],
       providers: [ContainerService]
     })

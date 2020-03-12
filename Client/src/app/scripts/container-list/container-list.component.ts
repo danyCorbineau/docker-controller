@@ -20,6 +20,8 @@ export class ContainerListComponent implements OnInit {
   dataSource = new MatTableDataSource<Container>();
   dialog: MatDialog;
 
+  dataloaded:boolean = false;
+
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
@@ -45,11 +47,20 @@ export class ContainerListComponent implements OnInit {
 
   async ngOnInit(): Promise<any>{
     await this.loadData();
+    this.dataloaded = true;
   }
 
   // tslint:disable-next-line: use-lifecycle-interface
-  ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
+  async ngAfterViewInit(): Promise<any> {
+    await new Promise((r) => {
+        setInterval(() => {
+          if(this.dataloaded) {
+            this.dataSource.sort = this.sort;
+            clearInterval();
+          }
+        }, 50)
+      }
+    )
   }
 }
 
