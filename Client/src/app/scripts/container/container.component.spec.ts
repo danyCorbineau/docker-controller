@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 import { ContainerComponent } from './container.component';
 
@@ -8,7 +9,11 @@ describe('ContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContainerComponent ]
+      declarations: [ ContainerComponent ],
+      providers: [
+        { provide: MatDialogRef, useValue: {} },
+        { provide: MAT_DIALOG_DATA, useValue: [] },
+      ]
     })
     .compileComponents();
   }));
@@ -16,10 +21,17 @@ describe('ContainerComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ContainerComponent);
     component = fixture.componentInstance;
+    component.container._id = 'ABCF';
+    component.container.names = "Alpha, Beta";
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display id - names', () => {
+    let titleValue = fixture.nativeElement.querySelector('h3').innerHTML;
+    expect(titleValue).toEqual('ABCF - Alpha, Beta');
+  })
 });
