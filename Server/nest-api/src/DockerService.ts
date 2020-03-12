@@ -1,6 +1,7 @@
 const Docker = require('dockerode');
 class DockerService
 {
+    docker;
     constructor() {
         this.docker = new Docker({socketPath: '/var/run/docker.sock'});
     }
@@ -20,15 +21,15 @@ class DockerService
             return 'Container is not running';
         }
         let exec = await containerDocker.exec({Cmd: [command]})
-        return await new Promise(async (res, rej) => {
+        return await new Promise(async (res, rej)  => {
             let localDatas = "";
             let socket = await exec.start();
             socket.on('data', (data) => {
                 localDatas += data;
-            })
+            });
             socket.on('end', () => {
                 res(localDatas);
-            })
+            });
             socket.on('error', (err) => {
                 rej(err);
             })
@@ -48,4 +49,4 @@ class DockerService
     }
 }
 
-module.exports = new DockerService()
+module.exports = new DockerService();
