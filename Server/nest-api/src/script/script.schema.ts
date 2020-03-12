@@ -1,4 +1,5 @@
 import * as mongoose from 'mongoose';
+// import {ContainerSchema} from '../container/container';
 
 export const ScriptSchema = new mongoose.Schema({
     name: String,
@@ -11,3 +12,8 @@ export const ScriptSchema = new mongoose.Schema({
     },
     content: Buffer,
 });
+
+// let scriptModel = mongoose.model('scripts', ScriptSchema, 'scripts')
+// scriptModel.getContainers = (script)=>{
+//   return ContainerSchema.find({scriptId : script._id})
+// }
