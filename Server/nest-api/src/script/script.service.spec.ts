@@ -1,6 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ScriptService } from './script.service';
-import {ScriptController} from "./script.controller";
 import {ScriptProvider} from "./script";
 import {Database} from "../database";
 
@@ -9,7 +8,6 @@ describe('ScriptService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [ScriptController],
       providers: [ScriptService, ...ScriptProvider, ...Database],
     }).compile();
 
