@@ -18,6 +18,10 @@ export class ScriptService {
         return createdScript.save();
     }
 
+    async checkUniqueName(name) {
+        return this.scriptModel.find({name: name});
+    }
+
     // async findOne(id: any): Promise<Script> {
     //     return 'Not yet implemented';
     // }

@@ -32,6 +32,11 @@ export class ScriptController {
         let content: any = "";
         try {
             if (data.title && data.extension) {
+                this.scrService.checkUniqueName(data.title).then((res) => {
+                    if (res.length > 0) {
+                        throw "Script already exists !";
+                    }
+                });
                 title = data.title;
                 if (authorizedExt.indexOf(data.extension) !== -1) {
                     extension = data.extension;
