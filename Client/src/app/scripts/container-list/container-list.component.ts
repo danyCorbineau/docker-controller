@@ -7,10 +7,15 @@ import {ContainerComponent} from '../container/container.component';
 import {Container} from '../../model/container';
 
 const ELEMENT_DATA: Container[] = [
+  // tslint:disable-next-line: max-line-length
   {_id: '123', names: 'abc', image: 'img', state: 'running', ports: ['123:567', '789:1011'], created: 1583508175, status: 'looking for ...'},
+  // tslint:disable-next-line: max-line-length
   {_id: '456', names: 'def', image: 'img', state: 'running', ports: ['123:567', '789:1011'], created: 1583508175, status: 'looking for ...'},
+  // tslint:disable-next-line: max-line-length
   {_id: '789', names: 'ghi', image: 'img', state: 'running', ports: ['123:567', '789:1011'], created: 1583508175, status: 'looking for ...'},
+  // tslint:disable-next-line: max-line-length
   {_id: '101', names: 'klm', image: 'img', state: 'running', ports: ['123:567', '789:1011'], created: 1583508175, status: 'looking for ...'},
+  // tslint:disable-next-line: max-line-length
   {_id: '112', names: 'nop', image: 'img', state: 'running', ports: ['123:567', '789:1011'], created: 1583508175, status: 'looking for ...'},
 ];
 
@@ -43,13 +48,14 @@ export class ContainerListComponent implements OnInit {
 
   loadData() {
     this.dataSource.data = ELEMENT_DATA;
-    console.log('LoadData')
+    console.log('LoadData');
   }
 
   ngOnInit() {
     this.loadData();
   }
 
+  // tslint:disable-next-line: use-lifecycle-interface
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
   }
