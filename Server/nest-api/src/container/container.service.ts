@@ -1,6 +1,9 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Model } from 'mongoose';
-import { Container } from './container.interface';
+import {Container} from "./container.interface";
+import {ContainerModel} from "./container.model";
+const DockerService = require("../DockerService");
+
 
 @Injectable()
 export class ContainerService {
@@ -9,8 +12,21 @@ export class ContainerService {
         private readonly containerModel: Model<Container>,
     ) {}
 
-    async findAll(): Promise<Container[]> {
-        return this.containerModel.find().exec();
+    async findAll(): Promise<ContainerModel[]> {
+        // return this.containerModel.find().exec();
+        // @ts-ignore
+        return (await DockerService.getDefaultContainersData()).map((row) => {
+            return {
+                unique_id: row.Id,
+                names: row.Names.join(', '),
+                image: row.Image,
+                state: row.State,
+                ports: row.Ports.map((port) => port.PrivatePort + ':' + port.PublicPort),
+                created: row.Created,
+                status: row.Status,
+                // scripts: {}
+            }
+        });
     }
 
     async create(container: Container): Promise<Container> {

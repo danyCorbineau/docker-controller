@@ -7,6 +7,7 @@ import {ContainerComponent} from '../container/container.component';
 import {Container} from '../../model/container';
 import {ContainerService} from '../../services/container.service';
 
+
 /**
  * @title Table with sorting
  */
@@ -16,7 +17,7 @@ import {ContainerService} from '../../services/container.service';
   styleUrls: ['./container-list.component.scss']
 })
 export class ContainerListComponent implements OnInit {
-  displayedColumns: string[] = ['_id', 'names', 'state'];
+  displayedColumns: string[] = ['unique_id', 'names', 'state'];
   dataSource = new MatTableDataSource<Container>();
   dialog: MatDialog;
 
@@ -26,7 +27,7 @@ export class ContainerListComponent implements OnInit {
 
   constructor(
     public popup: MatDialog,
-    private containerService: ContainerService
+    private containerService: ContainerService,
   ) {
     this.dataSource.data = [];
     this.dialog = popup;
@@ -41,7 +42,6 @@ export class ContainerListComponent implements OnInit {
 
   async loadData() {
     this.dataSource.data = await this.containerService.getContainers();
-    console.log('LoadData');
     return;
   }
 

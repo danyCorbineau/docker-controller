@@ -1,6 +1,5 @@
-import { Document } from 'mongoose';
 
-export interface Container extends Document {
+export class ContainerModel {
     unique_id: string;
     status: string;
     // scripts: any;

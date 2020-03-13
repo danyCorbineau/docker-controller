@@ -1,9 +1,12 @@
+import {IDocumentResource} from "ngx-jsonapi/interfaces/data-object";
+import {IDataResource} from "ngx-jsonapi/interfaces/data-resource";
+
 export class Container {
-    _id: string;
-    names: string;
-    image: string;
-    state: string;
-    ports: string[];
-    created: number;
-    status: string;
+    uniqueId: String;
+    names: String;
+    image: String;
+    state: String;
+    ports: [];
+    created: Number;
+    status: String;
 }

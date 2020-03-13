@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NgxJsonapiModule } from 'ngx-jsonapi';
 import { AppRoutingModule } from './app-routing.module';
 
 // Components
@@ -53,7 +53,10 @@ import {MatIconModule} from '@angular/material/icon';
     MatDialogModule,
     MatGridListModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxJsonapiModule.forRoot({
+      "url": '//localhost:3000/'
+    })
   ],
   providers: [
     CreateListService,

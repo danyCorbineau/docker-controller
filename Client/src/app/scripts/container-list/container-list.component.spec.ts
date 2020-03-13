@@ -21,9 +21,9 @@ describe('ContainerListComponent', () => {
 
   const CONTAINERS = [
     // tslint:disable-next-line: max-line-length
-    {_id: 'EFGH', names: 'Beta', image: 'A', state: 'running', ports: ['123:567', '789:1011'], created: 1583508175, status: 'looking for ...'},
+    {unique_id: 'EFGH', names: 'Beta', image: 'A', state: 'running', ports: ['123:567', '789:1011'], created: 1583508175, status: 'looking for ...'},
     // tslint:disable-next-line: max-line-length
-    {_id: 'ABCD', names: 'Alpha', image: 'Z', state: 'running', ports: ['123:567', '789:1011'], created: 1583508175, status: 'looking for ...'},];
+    {unique_id: 'ABCD', names: 'Alpha', image: 'Z', state: 'running', ports: ['123:567', '789:1011'], created: 1583508175, status: 'looking for ...'},];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
