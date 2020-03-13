@@ -1,9 +1,14 @@
-export class Container {
-    _id: string;
-    names: string;
-    image: string;
-    state: string;
-    ports: string[];
-    created: number;
-    status: string;
+import {Service, Resource, DocumentCollection, DocumentResource } from 'ngx-jsonapi';
+
+export class Container extends Resource{
+  public attributes = {
+    unique_id: '',
+    names: '',
+    image: '',
+    state: '',
+    ports: [],
+    created: 0,
+    status: '',
+  }
+
 }

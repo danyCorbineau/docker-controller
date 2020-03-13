@@ -16,7 +16,7 @@ import {ContainerService} from "../../services/container.service";
   styleUrls: ['./container-list.component.scss']
 })
 export class ContainerListComponent implements OnInit {
-  displayedColumns: string[] = ['_id', 'names', 'state'];
+  displayedColumns: string[] = ['unique_id', 'names', 'state'];
   dataSource = new MatTableDataSource<Container>();
   dialog: MatDialog;
 
@@ -26,7 +26,7 @@ export class ContainerListComponent implements OnInit {
 
   constructor(
     public popup: MatDialog,
-    private containerService: ContainerService
+    private containerService: ContainerService,
   ) {
     this.dataSource.data = [];
     this.dialog = popup;
@@ -40,7 +40,18 @@ export class ContainerListComponent implements OnInit {
   }
 
   async loadData() {
-    this.dataSource.data = await this.containerService.getContainers();
+    debugger;
+    await new Promise(async r => {
+      await this.containerService.all({}).subscribe((data) => {
+          // @ts-ignore
+          this.dataSource.data = data.data;
+        r();
+      }
+      )});
+    this.dataSource.data.forEach((d) => {
+      console.log(d.attributes.unique_id)
+    })
+    console.log(this.dataSource.data);
     console.log('LoadData');
     return;
   }

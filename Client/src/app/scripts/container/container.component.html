@@ -1,18 +1,18 @@
-<h3>{{container._id}} - {{container.names}}</h3>
+<h3>{{container.attributes.unique_id}} - {{container.attributes.names}}</h3>
 <ul>
     <li>
-        Image : {{container.image}}
+        Image : {{container.attributes.image}}
     </li>
     <li>
-        State : {{container.state}}
+        State : {{container.attributes.state}}
     </li>
     <li>
-        Ports : {{container.ports}}
+        Ports : {{container.attributes.ports}}
     </li>
     <li>
-        Created : {{container.created}}
+        Created : {{container.attributes.created}}
     </li>
     <li>
-        Status : {{container.status}}
+        Status : {{container.attributes.status}}
     </li>
 </ul>

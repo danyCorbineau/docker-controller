@@ -10,7 +10,6 @@ export class ContainerController {
     @Get()
     async findAll(): Promise<any> {
         let data: any = await this.contService.findAll();
-        console.log(data);
         /*let data_encoded: any = {...data};
         for(let i = 0; i < data.length; i++) {
             if (data[i].content !== undefined) {

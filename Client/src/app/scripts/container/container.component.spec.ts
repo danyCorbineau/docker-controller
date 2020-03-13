@@ -21,8 +21,8 @@ describe('ContainerComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ContainerComponent);
     component = fixture.componentInstance;
-    component.container._id = 'ABCF';
-    component.container.names = "Alpha, Beta";
+    component.container.attributes.unique_id = 'ABCF';
+    component.container.attributes.names = "Alpha, Beta";
     fixture.detectChanges();
   });
 
