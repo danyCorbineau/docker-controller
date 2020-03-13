@@ -7,6 +7,7 @@ import {ContainerComponent} from '../container/container.component';
 import {Container} from '../../model/container';
 import {ContainerService} from "../../services/container.service";
 
+
 /**
  * @title Table with sorting
  */
@@ -40,19 +41,7 @@ export class ContainerListComponent implements OnInit {
   }
 
   async loadData() {
-    debugger;
-    await new Promise(async r => {
-      await this.containerService.all({}).subscribe((data) => {
-          // @ts-ignore
-          this.dataSource.data = data.data;
-        r();
-      }
-      )});
-    this.dataSource.data.forEach((d) => {
-      console.log(d.attributes.unique_id)
-    })
-    console.log(this.dataSource.data);
-    console.log('LoadData');
+    this.dataSource.data = await this.containerService.getContainers();
     return;
   }
 

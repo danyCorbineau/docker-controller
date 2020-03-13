@@ -1,14 +1,12 @@
-import {Service, Resource, DocumentCollection, DocumentResource } from 'ngx-jsonapi';
+import {IDocumentResource} from "ngx-jsonapi/interfaces/data-object";
+import {IDataResource} from "ngx-jsonapi/interfaces/data-resource";
 
-export class Container extends Resource{
-  public attributes = {
-    unique_id: '',
-    names: '',
-    image: '',
-    state: '',
-    ports: [],
-    created: 0,
-    status: '',
-  }
-
+export class Container {
+    uniqueId: '';
+    names: '';
+    image: '';
+    state: '';
+    ports: [];
+    created: 0;
+    status: '';
 }
