@@ -69,13 +69,13 @@ export class ScriptController {
         }
     }
 
-    @Put()
-    async update() {
-        return 'Not yet implemented';
+    @Put(':id')
+    async update(@Param('id') id, @Body() data: Script) {
+        return this.scrService.update(id, data);
     }
 
-    @Delete()
-    async delete() {
-        return 'Not yet implemented';
+    @Delete(':id')
+    async delete(@Param('id') id: any) {
+        return await this.scrService.delete(id);
     }
 }

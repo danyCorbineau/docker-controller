@@ -8,6 +8,7 @@ import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatButtonModule} from "@angular/material/button";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 async function timeout(ms)
 {
@@ -32,6 +33,7 @@ describe('ContainerListComponent', () => {
         MatDialogModule,
         MatSortModule,
         BrowserAnimationsModule,
+        HttpClientTestingModule,
         MatButtonModule],
       declarations: [ ContainerListComponent ],
       providers: [ContainerService]

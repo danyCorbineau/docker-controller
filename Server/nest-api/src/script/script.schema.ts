@@ -13,5 +13,5 @@ export const ScriptSchema = new mongoose.Schema({
             return this.name == "" ? null : Date.now();
         }
     },
-    content: Buffer,
+    content: String,
 });

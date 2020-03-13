@@ -23,6 +23,10 @@ import {MatButtonModule} from '@angular/material/button';
 import { ContainerComponent } from './scripts/container/container.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
+import { ListScriptComponent } from './scripts/list-script/list-script.component';
+import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,9 @@ import { MatSortModule } from '@angular/material/sort';
     CreateListComponent,
     ScriptsComponent,
     ContainerListComponent,
-    ContainerComponent
+    ContainerComponent,
+    ListScriptComponent,
+    EditDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +51,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatButtonModule,
     MatDialogModule,
+    MatGridListModule,
+    MatIconModule,
     ReactiveFormsModule,
     NgxJsonapiModule.forRoot({
       "url": '//localhost:3000/'

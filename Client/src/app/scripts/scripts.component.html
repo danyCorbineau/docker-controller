@@ -1,6 +1,12 @@
-<div style="display:flex;">
-    <app-create-list></app-create-list>
-    <app-container-list></app-container-list>
+<mat-grid-list cols="2">
+  <mat-grid-tile class="docker-list">
+    <app-container-list style="width: 80%"></app-container-list>
+  </mat-grid-tile>
+  <mat-grid-tile class="script-form">
+    <app-create-list style="width: 80%"></app-create-list>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<div class="script-list">
+  <app-list-script style="width: 80%"></app-list-script>
 </div>
-
-
