@@ -62,9 +62,11 @@ describe('CreateListComponent', () => {
     newScript.content = '';
     await new Promise((resolve, reject) => {
       createService.add(newScript).subscribe( (res: any) => {
+        done.fail(new Error('Should not sucess'))
         console.log(res);
         resolve();
       }, (error) => {
+        console.log(error);
         expect(error).toBeDefined();
         expect(error.status).toEqual(403);
         expect(error.error.error).toEqual('Invalid extension');
