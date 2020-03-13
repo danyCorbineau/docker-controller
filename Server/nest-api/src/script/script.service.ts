@@ -26,11 +26,12 @@ export class ScriptService {
     //     return 'Not yet implemented';
     // }
 
-    // async update() {
-    //     return 'Not yet implemented';
-    // }
-    //
-    // async delete() {
-    //     return 'Not yet implemented';
-    // }
+    async update(id, script: Script) {
+        console.log(script);
+        return this.scriptModel.updateOne({id: id}, script);
+    }
+
+    async delete(id: any) {
+        return this.scriptModel.findByIdAndDelete(id);
+    }
 }

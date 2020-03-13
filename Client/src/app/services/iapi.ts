@@ -8,5 +8,5 @@ export interface IApi<T> {
     getOne(id: number): Observable<T>;
     add(entity: T): Observable<T>;
     update(entity: T);
-    delete(entity: T);
+    delete(id: number);
 }

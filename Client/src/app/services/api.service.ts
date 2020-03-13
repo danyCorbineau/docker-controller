@@ -31,7 +31,7 @@ export class ApiService<T> implements IApi<T> {
   update(entity: T) {
     return this.http.put<T>(this.API_URL + '/' + this.entity_endpoint, entity);
   }
-  delete(entity: T) {
-    return this.http.delete(this.API_URL + '/' + this.entity_endpoint);
+  delete(id: number) {
+    return this.http.delete(this.API_URL + '/' + this.entity_endpoint + '/' + id);
   }
 }

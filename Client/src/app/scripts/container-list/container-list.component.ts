@@ -5,7 +5,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 
 import {ContainerComponent} from '../container/container.component';
 import {Container} from '../../model/container';
-import {ContainerService} from "../../services/container.service";
+import {ContainerService} from '../../services/container.service';
 
 /**
  * @title Table with sorting
@@ -20,7 +20,7 @@ export class ContainerListComponent implements OnInit {
   dataSource = new MatTableDataSource<Container>();
   dialog: MatDialog;
 
-  dataloaded:boolean = false;
+  dataloaded = false;
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -45,7 +45,7 @@ export class ContainerListComponent implements OnInit {
     return;
   }
 
-  async ngOnInit(): Promise<any>{
+  async ngOnInit(): Promise<any> {
     await this.loadData();
     this.dataloaded = true;
   }
@@ -54,13 +54,13 @@ export class ContainerListComponent implements OnInit {
   async ngAfterViewInit(): Promise<any> {
     await new Promise((r) => {
         setInterval(() => {
-          if(this.dataloaded) {
+          if (this.dataloaded) {
             this.dataSource.sort = this.sort;
             clearInterval();
           }
-        }, 50)
+        }, 50);
       }
-    )
+    );
   }
 }
 

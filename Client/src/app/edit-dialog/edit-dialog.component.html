@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>{{data.name}}</h1>
+<div mat-dialog-content>
+  <p>Modifier son script</p>
+  <form [formGroup]="formModal">
+    <mat-form-field>
+      <mat-label>Contenu</mat-label>
+      <input matInput formControlName="content">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button class="cancel=" mat-button (click)="onNoClick()">Annuler</button>
+  <button class="valid=" mat-button [mat-dialog-close]="getFormData()" cdkFocusInitial>Valider</button>
+</div>
