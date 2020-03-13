@@ -87,5 +87,14 @@
   },
   "rulesDirectory": [
     "codelyzer"
-  ]
+  ],
+  "overrides": {
+    "files": [
+      "*packages/deserializer*",
+      "*packages/normalizer*"
+    ],
+    "rules": {
+      "require-jsdoc": "off"
+    }
+  }
 }

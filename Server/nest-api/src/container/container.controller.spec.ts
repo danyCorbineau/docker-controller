@@ -32,7 +32,7 @@ describe('Container Controller', () => {
     let findContainers = await controller.findAll();
     expect(findContainers).toBeDefined();
     expect(findContainers.data.length).toBeGreaterThan(0);
-    expect(findContainers.data[0].id).toBeDefined();
+    expect(findContainers.data[0].attributes['unique-id']).toBeDefined();
     done();
   });
 
