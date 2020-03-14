@@ -10,14 +10,6 @@ export class ScriptController {
     @Get()
     async findAll(): Promise<any> {
         let data: any = await this.scrService.findAll();
-        /*let data_encoded: any = {...data};
-        for(let i = 0; i < data.length; i++) {
-            if (data[i].content !== undefined) {
-                const decodedScript = data[i].content.toString('utf-8');
-                data_encoded[i].content = decodedScript;
-                console.log(data_encoded[i].content.toString());
-            }
-        }*/
         return new JSONApi.Serializer('script', {
                 attributes: ['name', 'ext', 'createdAt', 'content'],
             }
@@ -74,11 +66,19 @@ export class ScriptController {
 
     @Put(':id')
     async update(@Param('id') id, @Body() data: Script) {
-        return this.scrService.update(id, data);
+        let update = await this.scrService.update(id, data);
+        console.log(update)
+        return new JSONApi.Serializer('script', {
+                attributes: ['name', 'ext', 'createdAt', 'content'],
+            }
+            ).serialize(update);
     }
 
     @Delete(':id')
     async delete(@Param('id') id: any) {
-        return await this.scrService.delete(id);
+        return new JSONApi.Serializer('script', {
+            attributes: ['name', 'ext', 'createdAt', 'content'],
+        }
+    ).serialize(await this.scrService.delete(id));
     }
 }

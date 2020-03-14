@@ -69,11 +69,28 @@ describe('Script Controller', () => {
   });
 
   it('test update', async () => {
-    expect(await controller.update()).toEqual('Not yet implemented');
+    let script = await controller.create({title: 'update script', extension: 'py', content: 'print();'});
+    let id = script.data.id;
+    let newScript: any = {
+      name: 'new update name'
+    }
+    await controller.update(script.id, newScript);
+    let updateRcv = await controller.findAll();
+    expect(updateRcv.data[0].attributes.name).toEqual(newScript.name);
+    expect(updateRcv.data[0].attributes.createdAt).toEqual(script.createdAt);
   })
 
   it('test delete',   async () => {
-    expect(await controller.delete()).toEqual('Not yet implemented');
+    let script = await controller.create({title: 'delete script', extension: 'py', content: 'print();'});
+    let id = script.data.id;
+    expect(id).toBeDefined();
+    let find = await controller.findAll();
+    expect(find.data.length).toEqual(1);
+
+    let deleteReturn = await controller.delete(id);
+    expect(deleteReturn).toEqual(script);
+    find = await controller.findAll();
+    expect(find.data.length).toEqual(0);
   })
 
 });
