@@ -34,7 +34,10 @@ export class ScriptController {
             if (data.title && data.extension) {
                 this.scrService.checkUniqueName(data.title).then((res) => {
                     if (res.length > 0) {
-                        throw "Script already exists !";
+                        return new JSONApi.Serializer('script', {
+                            attributes: ['name', 'ext', 'createdAt', 'content'],
+                        }
+                        ).serialize(res[0]);
                     }
                 });
                 title = data.title;

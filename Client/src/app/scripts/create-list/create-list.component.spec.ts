@@ -57,16 +57,14 @@ describe('CreateListComponent', () => {
 
   it('should not send script',  async (done) => {
     const newScript: CreateScript = {title: '', extension: '', content: ''};
-    newScript.title = 'Title false test';
+    newScript.title = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     newScript.extension = 'json';
     newScript.content = '';
     await new Promise((resolve, reject) => {
       createService.add(newScript).subscribe( (res: any) => {
         done.fail(new Error('Should not sucess'))
-        console.log(res);
         resolve();
       }, (error) => {
-        console.log(error);
         expect(error).toBeDefined();
         expect(error.status).toEqual(403);
         expect(error.error.error).toEqual('Invalid extension');
@@ -76,20 +74,26 @@ describe('CreateListComponent', () => {
   });
 
   it('should send script',  async (done) => {
-    const newScript: CreateScript = new CreateScript();
-    newScript.title = 'Title test';
-    newScript.extension = 'py';
-    newScript.content = 'function(){}';
-    await new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve();
-      }, 2000);
-      createService.add(newScript).subscribe( (res: any) => {
-        expect(res.data.id).toBeDefined();
-        expect(res.data.attributes.name).toEqual(newScript.title);
-        done();
+    let title = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    const newScript: CreateScript ={title: title, extension: 'py', content: 'function(){}'};
+    console.log("should send", newScript);
+    try {
+      await new Promise(async (resolve, reject) => {
+        await new Promise((r) => setTimeout(r, 500));
+        let observable = createService.add(newScript);
+        observable.subscribe( (res: any) => {
+          
+          expect(res.data.id).toBeDefined();
+          expect(res.data.attributes.name).toEqual(newScript.title);
+          done();
+          resolve();
+        });
       });
-    });
+    }  catch (e) {
+      console.log("Error on observer");
+      done.fail(e);
+    }
+    
   });
 });
 
