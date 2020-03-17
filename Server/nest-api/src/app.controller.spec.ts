@@ -13,6 +13,7 @@ describe('AppController', () => {
 
     appController = app.get<AppController>(AppController);
   });
+  afterAll(() => setTimeout(() => process.exit(), 1000))
 
   describe('root', () => {
     it('should return "Hello World!"', () => {

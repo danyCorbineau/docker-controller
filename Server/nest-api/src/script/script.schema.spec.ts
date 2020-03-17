@@ -8,4 +8,5 @@ describe('ScriptSchema', () => {
         expect(ScriptSchema).toBeDefined();
         expect(ScriptSchema.obj.createdAt.default()).toBeDefined();
     });
+    afterAll(() => setTimeout(() => process.exit(), 1000))
 });
