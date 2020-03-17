@@ -2,9 +2,8 @@ version: '3'
 services:
   angular:
     build: ./Client
-    command: npm run start
     ports:
-      - "9008:4200"
+      - "9009:4200"
   nest:
     build: ./Server/nest-api
     command: npm run start
