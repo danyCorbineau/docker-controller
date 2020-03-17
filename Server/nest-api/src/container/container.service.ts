@@ -15,7 +15,7 @@ export class ContainerService {
     async findAll(): Promise<ContainerModel[]> {
         // return this.containerModel.find().exec();
         // @ts-ignore
-        return (await DockerService.getDefaultContainersData()).map((row) => {
+        return (await DockerService.getContainers()).map((row) => {
             return {
                 unique_id: row.Id,
                 names: row.Names.join(', '),

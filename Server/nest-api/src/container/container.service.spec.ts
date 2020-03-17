@@ -13,6 +13,7 @@ describe('ContainerService', () => {
 
     service = module.get<ContainerService>(ContainerService);
   });
+  afterAll(() => setTimeout(() => process.exit(), 1000))
 
   it('should be defined', () => {
     expect(service).toBeDefined();

@@ -1,0 +1,31 @@
+image: weboaks/node-karma-protractor-chrome
+
+stages:
+  - build
+  - test
+
+cache:
+  paths:
+    - node_modules/
+
+install_dependencies:
+  stage: build
+  script:
+    - cd Server/nest-api
+    - npm install
+    - cd ../../Client
+    - npm install
+  artifacts:
+    paths:
+      - Server/nest-api/node_modules/
+      - Client/node_modules/
+    expire_in: 1 day
+
+testing_testing:
+  stage: test
+  script:
+    - cd Server/nest-api 
+    - npm run test:cov
+    - nohup npm run start &
+    - cd ../../Client
+    - node_modules/.bin/ng test --code-coverage

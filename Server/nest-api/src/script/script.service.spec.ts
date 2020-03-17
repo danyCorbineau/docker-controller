@@ -17,6 +17,7 @@ describe('ScriptService', () => {
     }
     catch(e){}
   });
+  afterAll(() => setTimeout(() => process.exit(), 1000))
 
   it('should be defined', () => {
     expect(service).toBeDefined();

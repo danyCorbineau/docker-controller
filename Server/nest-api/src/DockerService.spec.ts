@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 const DockerService = require('./DockerService');
 
 describe('Docker Service', () => {
-
+    afterAll(() => setTimeout(() => process.exit(), 1000))
 
     it('Default data is array', async() => {
         let datas = await DockerService.getDefaultContainersData()

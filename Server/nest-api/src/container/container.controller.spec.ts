@@ -21,6 +21,7 @@ describe('Container Controller', () => {
     }
     catch(e){}
   });
+  afterAll(() => setTimeout(() => process.exit(), 1000))
 
   it('should be defined', () => {
     expect(controller).toBeDefined();

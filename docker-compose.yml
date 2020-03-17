@@ -1,0 +1,13 @@
+version: '3'
+services:
+  angular:
+    build: ./Client
+    command: npm run start
+    ports:
+      - "9008:4200"
+  nest:
+    build: ./Server/nest-api
+    command: npm run start
+    environment:
+      PORT: 3000
+      DB: mongodb://dany-corbineau.fr:27018/docker_controller_server
