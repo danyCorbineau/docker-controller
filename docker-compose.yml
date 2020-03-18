@@ -3,10 +3,14 @@ services:
   angular:
     build: ./Client
     ports:
-      - "9009:4200"
+      - "9009:80"
   nest:
     build: ./Server/nest-api
     command: npm run start
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    ports:
+      - "9010:3000"
     environment:
       PORT: 3000
       DB: mongodb://dany-corbineau.fr:27018/docker_controller_server

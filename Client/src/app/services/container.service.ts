@@ -7,7 +7,7 @@ import { deserialize } from 'deserialize-json-api';
   providedIn: 'root'
 })
 export class ContainerService extends ApiService<Container> {
-  API_URL = 'http://localhost:3000';
+  API_URL = 'http://dany-corbineau.fr:9010';
   entity_endpoint =  'containers';
   async getContainers(): Promise<any>
   {

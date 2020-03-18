@@ -179,7 +179,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
             _angular_material_icon__WEBPACK_IMPORTED_MODULE_22__["MatIconModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_12__["ReactiveFormsModule"],
             ngx_jsonapi__WEBPACK_IMPORTED_MODULE_3__["NgxJsonapiModule"].forRoot({
-                "url": '//localhost:3000/'
+                "url": 'http://dany-corbineau.fr:9010'
             })
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
@@ -232,7 +232,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _angular_material_icon__WEBPACK_IMPORTED_MODULE_22__["MatIconModule"],
                     _angular_forms__WEBPACK_IMPORTED_MODULE_12__["ReactiveFormsModule"],
                     ngx_jsonapi__WEBPACK_IMPORTED_MODULE_3__["NgxJsonapiModule"].forRoot({
-                        "url": '//localhost:3000/'
+                        "url": 'http://dany-corbineau.fr:9010'
                     })
                 ],
                 providers: [
@@ -1197,7 +1197,7 @@ __webpack_require__.r(__webpack_exports__);
 class ContainerService extends _api_service__WEBPACK_IMPORTED_MODULE_2__["ApiService"] {
     constructor() {
         super(...arguments);
-        this.API_URL = 'http://localhost:3000';
+        this.API_URL = 'http://dany-corbineau.fr:9010';
         this.entity_endpoint = 'containers';
     }
     getContainers() {
@@ -1281,7 +1281,7 @@ __webpack_require__.r(__webpack_exports__);
 const environment = {
     production: false,
     Api: {
-        url: 'http://localhost:3000'
+        url: 'http://dany-corbineau.fr:9010'
     }
 };
 /*
