@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 
 export interface IApi<T> {
     API_URL: string;
-    entity_endpoint: string;
+    ENTITY_ENDPOINT: string;
 
     getAll(): Observable<T[]>;
     getOne(id: number): Observable<T>;

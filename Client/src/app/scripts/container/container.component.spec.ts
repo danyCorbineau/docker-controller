@@ -21,8 +21,8 @@ describe('ContainerComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ContainerComponent);
     component = fixture.componentInstance;
-    component.container.uniqueId = "ABCF";
-    component.container.names = "Alpha, Beta";
+    component.container.uniqueId = 'ABCF';
+    component.container.names = 'Alpha, Beta';
     fixture.detectChanges();
   });
 
@@ -31,7 +31,7 @@ describe('ContainerComponent', () => {
   });
 
   it('should display id - names', () => {
-    let titleValue = fixture.nativeElement.querySelector('h3').innerHTML;
+    const titleValue = fixture.nativeElement.querySelector('h3').innerHTML;
     expect(titleValue).toEqual('ABCF - Alpha, Beta');
-  })
+  });
 });

@@ -8,30 +8,30 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiService<T> implements IApi<T> {
   API_URL: string;
-  entity_endpoint: string;
+  ENTITY_ENDPOINT: string;
 
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<T[]> {
-    return this.http.get<T[]>(this.API_URL + '/' + this.entity_endpoint);
+    return this.http.get<T[]>(this.API_URL + '/' + this.ENTITY_ENDPOINT);
 
   }
   getOne(id: number): Observable<T> {
-    return this.http.get<T>(this.API_URL + '/' + this.entity_endpoint + '/' + id);
+    return this.http.get<T>(this.API_URL + '/' + this.ENTITY_ENDPOINT + '/' + id);
   }
   add(entity: T): Observable<T> {
     console.log('test : ', entity);
     try {
-      return this.http.post<T>(this.API_URL + '/' + this.entity_endpoint, entity);
+      return this.http.post<T>(this.API_URL + '/' + this.ENTITY_ENDPOINT, entity);
     } catch (e) {
       console.error(e);
       return null;
     }
   }
   update(entity: T) {
-    return this.http.put<T>(this.API_URL + '/' + this.entity_endpoint, entity);
+    return this.http.put<T>(this.API_URL + '/' + this.ENTITY_ENDPOINT, entity);
   }
   delete(id: number) {
-    return this.http.delete(this.API_URL + '/' + this.entity_endpoint + '/' + id);
+    return this.http.delete(this.API_URL + '/' + this.ENTITY_ENDPOINT + '/' + id);
   }
 }

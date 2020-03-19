@@ -10,7 +10,7 @@ import { CreateScript } from '../model/create-script';
 export class CreateListService extends ApiService<CreateScript> {
 
   API_URL: string = environment.Api.url;
-  entity_endpoint = 'scripts';
+  ENTITY_ENDPOINT = 'scripts';
 
   constructor(private httpClient: HttpClient) {
     super(httpClient);

@@ -47,7 +47,7 @@ describe('CreateListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CreateListComponent);
     component = fixture.componentInstance;
-    createService = TestBed.get(CreateListService);
+    createService = TestBed.inject(CreateListService);
     fixture.detectChanges();
   });
 
@@ -62,7 +62,7 @@ describe('CreateListComponent', () => {
     newScript.content = '';
     await new Promise((resolve, reject) => {
       createService.add(newScript).subscribe( (res: any) => {
-        done.fail(new Error('Should not sucess'))
+        done.fail(new Error('Should not sucess'));
         resolve();
       }, (error) => {
         expect(error).toBeDefined();
@@ -74,15 +74,14 @@ describe('CreateListComponent', () => {
   });
 
   it('should send script',  async (done) => {
-    let title = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-    const newScript: CreateScript ={title: title, extension: 'py', content: 'function(){}'};
-    console.log("should send", newScript);
+    const title = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    const newScript: CreateScript = {title, extension: 'py', content: 'function(){}'};
+    console.log('should send', newScript);
     try {
       await new Promise(async (resolve, reject) => {
         await new Promise((r) => setTimeout(r, 500));
-        let observable = createService.add(newScript);
+        const observable = createService.add(newScript);
         observable.subscribe( (res: any) => {
-          
           expect(res.data.id).toBeDefined();
           expect(res.data.attributes.name).toEqual(newScript.title);
           done();
@@ -90,10 +89,10 @@ describe('CreateListComponent', () => {
         });
       });
     }  catch (e) {
-      console.log("Error on observer");
+      console.log('Error on observer');
       done.fail(e);
     }
-    
+
   });
 });
 

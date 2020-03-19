@@ -3,7 +3,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {CreateListService} from '../../services/create-list.service';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
-import {EditDialogComponent} from "../../edit-dialog/edit-dialog.component";
+import {EditDialogComponent} from '../../edit-dialog/edit-dialog.component';
 
 @Component({
   selector: 'app-list-script',
