@@ -55,7 +55,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatIconModule,
     ReactiveFormsModule,
     NgxJsonapiModule.forRoot({
-      "url": '//localhost:3000/'
+      url: '//localhost:3000/'
     })
   ],
   providers: [

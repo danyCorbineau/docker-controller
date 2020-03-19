@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditDialogComponent } from './edit-dialog.component';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder} from '@angular/forms';
 
 describe('EditDialogComponent', () => {
   let component: EditDialogComponent;
