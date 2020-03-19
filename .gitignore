@@ -1,2 +1,4 @@
 .idea/*
 Server/nest-api/nohup.out
+.idea
+.vscode
