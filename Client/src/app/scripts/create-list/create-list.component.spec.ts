@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { CreateListService } from 'src/app/services/create-list.service';
 import {CreateScript} from '../../model/create-script';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 describe('CreateListComponent', () => {
   let component: CreateListComponent;
@@ -35,7 +36,8 @@ describe('CreateListComponent', () => {
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
-        MatButtonModule
+        MatButtonModule,
+        MatSnackBarModule
       ],
       providers: [
         CreateListService

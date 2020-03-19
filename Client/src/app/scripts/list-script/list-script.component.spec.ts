@@ -12,6 +12,7 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {HttpClient} from '@angular/common/http';
 import {FormBuilder} from '@angular/forms';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 async function timeout(ms) {
   return new Promise((r) => setTimeout(r, ms));
@@ -41,6 +42,7 @@ describe('ListScriptComponent', () => {
         MatSortModule,
         BrowserAnimationsModule,
         HttpClientTestingModule,
+        MatSnackBarModule
       ],
       declarations: [ ListScriptComponent, EditDialogComponent ],
       providers: [HttpClient, CreateListService,
@@ -60,6 +62,7 @@ describe('ListScriptComponent', () => {
     component.dataSource.data = items;
     spyOn(component, 'openDialog');
     spyOn(component, 'deleteScript');
+    spyOn(component, 'openSnackBar');
     await timeout(200);
     fixture.detectChanges();
   });
@@ -108,6 +111,7 @@ describe('ListScriptComponent', () => {
     await timeout(200);
     fixture.detectChanges();
     expect(component.deleteScript).toHaveBeenCalledWith(new MouseEvent('click'), '5e6a4c99c9241d2698c649b5');
+    expect(component.openSnackBar).toHaveBeenCalledWith('Le script a été supprimé', 'OK');
   });
 
   /*describe('Test modal functions', () => {

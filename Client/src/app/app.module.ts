@@ -27,6 +27,8 @@ import { ListScriptComponent } from './scripts/list-script/list-script.component
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
+// import {AlertModule} from './_alert';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import {MatIconModule} from '@angular/material/icon';
     ReactiveFormsModule,
     NgxJsonapiModule.forRoot({
       url: '//localhost:3000/'
-    })
+    }),
+    MatSnackBarModule
+    // AlertModule
   ],
   providers: [
     CreateListService,

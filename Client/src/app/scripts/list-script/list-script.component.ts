@@ -4,6 +4,7 @@ import {CreateListService} from '../../services/create-list.service';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
 import {EditDialogComponent} from '../../edit-dialog/edit-dialog.component';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-list-script',
@@ -18,8 +19,10 @@ export class ListScriptComponent implements OnInit {
   dataSource = new MatTableDataSource<any>();
   dialog: MatDialog;
 
+  durationInSeconds = 5;
+
   @ViewChild(MatSort) sort: MatSort;
-  constructor(public popup: MatDialog, public scriptService: CreateListService) {
+  constructor(public popup: MatDialog, public scriptService: CreateListService, private snackBar: MatSnackBar) {
     this.noScripts = true;
     this.dataSource.data = [];
     this.dialog = popup;
@@ -66,11 +69,21 @@ export class ListScriptComponent implements OnInit {
 
   deleteScript(e, id) {
     e.stopPropagation();
-    this.scriptService.delete(id).subscribe(async (res) => {
+    this.scriptService.delete(id).subscribe(async (res: any) => {
       console.log('res: ', res);
+      if (res.data.id === id) {
+        this.openSnackBar('Le script a été supprimé', 'OK');
+      }
       await this.loadData();
     }, (error) => {
       console.error(error);
+      this.openSnackBar('Error : ' + error.error.error, 'OK');
+    });
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: this.durationInSeconds * 1000,
     });
   }
 

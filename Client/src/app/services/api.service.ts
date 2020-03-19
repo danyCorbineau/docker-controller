@@ -25,7 +25,7 @@ export class ApiService<T> implements IApi<T> {
       return this.http.post<T>(this.API_URL + '/' + this.ENTITY_ENDPOINT, entity);
     } catch (e) {
       console.error(e);
-      return null;
+      return e;
     }
   }
   update(entity: T) {

@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { CreateListService } from '../services/create-list.service';
+import { MatSnackBarModule} from '@angular/material/snack-bar';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -33,7 +34,8 @@ describe('HomeComponent', () => {
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
-        MatButtonModule
+        MatButtonModule,
+        MatSnackBarModule
       ],
       providers: [
         CreateListService
