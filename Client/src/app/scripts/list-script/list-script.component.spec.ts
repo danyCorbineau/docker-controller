@@ -50,8 +50,8 @@ describe('ListScriptComponent', () => {
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
-    service = TestBed.get(CreateListService);
-    dialog = TestBed.get(MatDialog);
+    service = TestBed.inject(CreateListService);
+    dialog = TestBed.inject(MatDialog);
   }));
 
   beforeEach(async () => {

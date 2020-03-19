@@ -41,7 +41,9 @@ export class ContainerListComponent implements OnInit {
   }
 
   async loadData() {
-    this.dataSource.data = (await this.containerService.getContainers()).map((container) => {return {...container, uniqueId: container["unique-id"]}});
+    this.dataSource.data = (await this.containerService.getContainers()).map((container) => {
+      return {...container, uniqueId: container['unique-id']};
+    });
     return;
   }
 

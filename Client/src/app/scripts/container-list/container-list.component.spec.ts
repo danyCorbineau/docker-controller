@@ -10,8 +10,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatButtonModule} from "@angular/material/button";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 
-async function timeout(ms)
-{
+async function timeout(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
@@ -23,7 +22,8 @@ describe('ContainerListComponent', () => {
     // tslint:disable-next-line: max-line-length
     {unique_id: 'EFGH', names: 'Beta', image: 'A', state: 'running', ports: ['123:567', '789:1011'], created: 1583508175, status: 'looking for ...'},
     // tslint:disable-next-line: max-line-length
-    {unique_id: 'ABCD', names: 'Alpha', image: 'Z', state: 'running', ports: ['123:567', '789:1011'], created: 1583508175, status: 'looking for ...'},];
+    {unique_id: 'ABCD', names: 'Alpha', image: 'Z', state: 'running', ports: ['123:567', '789:1011'], created: 1583508175, status: 'looking for ...'},
+  ];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -39,7 +39,7 @@ describe('ContainerListComponent', () => {
       providers: [ContainerService]
     })
     .compileComponents();
-    let containerService = TestBed.get(ContainerService);
+    const containerService = TestBed.inject(ContainerService);
     spyOn(containerService, 'getContainers').and.returnValue(Promise.resolve(CONTAINERS));
   }));
 
@@ -58,9 +58,9 @@ describe('ContainerListComponent', () => {
   });
 
   it('test first element in list is ', async () => {
-      let row = fixture.debugElement.nativeElement.querySelector('tr[mat-row]');
+      const row = fixture.debugElement.nativeElement.querySelector('tr[mat-row]');
       row.click();
       await timeout(500);
-    expect(component.showDataContainer).toHaveBeenCalled();
+      expect(component.showDataContainer).toHaveBeenCalled();
   });
 });
