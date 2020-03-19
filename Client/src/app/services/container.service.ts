@@ -8,7 +8,7 @@ import { deserialize } from 'deserialize-json-api';
 })
 export class ContainerService extends ApiService<Container> {
   API_URL = 'http://localhost:3000';
-  entity_endpoint =  'containers';
+  ENTITY_ENDPOINT =  'containers';
   async getContainers(): Promise<any>
   {
     try {
