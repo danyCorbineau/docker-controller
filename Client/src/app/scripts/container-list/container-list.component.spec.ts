@@ -2,13 +2,13 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ContainerListComponent } from './container-list.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import {OverlayModule} from "@angular/cdk/overlay";
-import {ContainerService} from "../../services/container.service";
-import {MatTableModule} from "@angular/material/table";
-import {MatSortModule} from "@angular/material/sort";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MatButtonModule} from "@angular/material/button";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {OverlayModule} from '@angular/cdk/overlay';
+import {ContainerService} from '../../services/container.service';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 async function timeout(ms) {
   return new Promise((r) => setTimeout(r, ms));

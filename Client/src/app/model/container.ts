@@ -1,9 +1,9 @@
 export class Container {
-    uniqueId: String;
-    names: String;
-    image: String;
-    state: String;
+    uniqueId: string;
+    names: string;
+    image: string;
+    state: string;
     ports: [];
-    created: Number;
-    status: String;
+    created: number;
+    status: string;
 }
